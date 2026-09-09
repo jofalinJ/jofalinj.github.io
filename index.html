@@ -2,16 +2,107 @@
 <html lang="en">
 
 <head>
+  <!-- =========================================================
+       BASIC SEO
+       ========================================================= -->
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta name="theme-color" content="#050505" />
-  <title>JOFALIN // PORTFOLIO</title>
+
+  <meta name="author" content="Jofalin" />
+
+  <meta name="description"
+    content="Jofalin's official portfolio — Information Technology student, creative developer, UI/UX designer, web developer and aspiring 3D model designer." />
+
+  <meta name="keywords"
+    content="Jofalin, Jofalin portfolio, Jofalin IT, Jofalin developer, Jofalin developer portfolio, Jofalin UI UX, Jofalin web developer, Jofalin 3D designer, Jofalin GitHub, Information Technology student" />
+
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- =========================================================
+       CANONICAL URL
+       ========================================================= -->
+  <link rel="canonical" href="https://jofalinj.github.io/" />
+
+  <!-- =========================================================
+       FAVICON
+       ========================================================= -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- =========================================================
+       TITLE
+       ========================================================= -->
+  <title>Jofalin | Information Technology Student & Creative Developer</title>
+
+  <!-- =========================================================
+       OPEN GRAPH / SOCIAL SHARING
+       ========================================================= -->
+  <meta property="og:type" content="website" />
+
+  <meta property="og:title" content="Jofalin | Information Technology Student & Creative Developer" />
+
+  <meta property="og:description"
+    content="Official portfolio of Jofalin — creative developer, UI/UX designer, web developer and aspiring 3D model designer." />
+
+  <meta property="og:url" content="https://jofalinj.github.io/" />
+
+  <meta property="og:site_name" content="Jofalin Portfolio" />
+
+  <meta property="og:image" content="https://jofalinj.github.io/assets/profile.jpg" />
+
+  <meta property="og:image:alt" content="Jofalin portfolio profile" />
+
+  <!-- =========================================================
+       TWITTER / X CARD
+       ========================================================= -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="twitter:title" content="Jofalin | Creative Developer Portfolio" />
+
+  <meta name="twitter:description"
+    content="Official portfolio of Jofalin — web development, UI/UX, technology and creative digital projects." />
+
+  <meta name="twitter:image" content="https://jofalinj.github.io/assets/profile.jpg" />
+
+  <!-- =========================================================
+       STRUCTURED DATA
+       Helps search engines understand who Jofalin is.
+       ========================================================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jofalin",
+    "url": "https://jofalinj.github.io/",
+    "image": "https://jofalinj.github.io/assets/profile.jpg",
+    "jobTitle": "Creative Developer",
+    "description": "Information Technology student and creative developer interested in web development, UI/UX design, artificial intelligence and 3D modelling.",
+    "sameAs": [
+      "https://github.com/jofalin"
+    ]
+  }
+  </script>
+
+  <!-- =========================================================
+       WEBSITE STRUCTURED DATA
+       ========================================================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Jofalin Portfolio",
+    "alternateName": "Jofalin",
+    "url": "https://jofalinj.github.io/"
+  }
+  </script>
 
   <style>
     /* =========================================================
        PERSONA-INSPIRED ORIGINAL PORTFOLIO UI
-       No game characters, logos, screenshots, or copyrighted art.
-       Replace the marked PLACEHOLDER fields in the DATA object.
        ========================================================= */
 
     :root {
@@ -480,10 +571,6 @@
       animation: cardIn 900ms 180ms var(--ease) both;
     }
 
-    /* PROFILE IMAGE
-       Put your real photo at assets/profile.jpg.
-       Change personal.profileImage in portfolio-data.js if needed.
-    */
     .hero-profile {
       position: absolute;
       inset: 13% 8% 16% 12%;
@@ -782,10 +869,6 @@
       transform: translateX(18px) skewX(-2deg) rotate(-1deg);
     }
 
-    /* PROJECT COLOR ROTATION
-       portfolio-engine.js automatically cycles colors for every project.
-       You do NOT need to add a color when adding a new project.
-    */
     .project {
       background: var(--project-bg, #050505);
       color: var(--project-fg, #fff);
@@ -1143,241 +1226,674 @@
 </head>
 
 <body>
+
+  <!-- =====================================================
+       LOADER
+       ===================================================== -->
+
   <div id="loader">
     <div class="loader-box">
-      <h1 class="loader-title">PORTFOLIO<br>INITIALIZE</h1>
+      <h1 class="loader-title">
+        JOFALIN<br>
+        INITIALIZE
+      </h1>
+
       <div class="loader-track">
         <div class="loader-progress"></div>
       </div>
+
       <div class="loader-meta">
-        <span>LOADING PERSONAL DATA</span>
+        <span>LOADING JOFALIN DATA</span>
         <span>100%</span>
       </div>
     </div>
   </div>
 
+  <!-- CUSTOM CURSOR -->
   <div class="cursor" id="cursor"></div>
 
+  <!-- =====================================================
+       TOP HUD
+       ===================================================== -->
+
   <header class="hud">
-    <a class="brand" href="#home" aria-label="Home">
-      <span class="brand-mark">J</span>
-      <span class="brand-name" id="brandName">JOFALIN // CREATIVE DEV</span>
+
+    <a class="brand" href="#home" aria-label="Jofalin Home">
+
+      <span class="brand-mark">
+        J
+      </span>
+
+      <span class="brand-name" id="brandName">
+        JOFALIN // CREATIVE DEV
+      </span>
+
     </a>
+
     <div class="hud-status">
-      <span><i class="dot"></i>AVAILABLE FOR OPPORTUNITIES</span>
-      <span id="hudClock">00:00:00</span>
+
+      <span>
+        <i class="dot"></i>
+        AVAILABLE FOR OPPORTUNITIES
+      </span>
+
+      <span id="hudClock">
+        00:00:00
+      </span>
+
     </div>
+
   </header>
 
+  <!-- =====================================================
+       MENU
+       ===================================================== -->
+
   <button class="menu-toggle" id="menuToggle" aria-label="Open portfolio menu" aria-expanded="false">
+
     MENU
+
   </button>
 
   <nav class="side-menu" id="sideMenu" aria-hidden="true">
+
     <div class="menu-panel">
-      <h2>COMMAND / NAVIGATION</h2>
+
+      <h2>
+        COMMAND / NAVIGATION
+      </h2>
+
       <div class="menu-list">
-        <a class="menu-link active" href="#home"><span>01 HOME</span><small>ENTER</small></a>
-        <a class="menu-link" href="#about"><span>02 PROFILE</span><small>01</small></a>
-        <a class="menu-link" href="#skills"><span>03 SKILLS</span><small>02</small></a>
-        <a class="menu-link" href="#projects"><span>04 PROJECTS</span><small>03</small></a>
-        <a class="menu-link" href="#experience"><span>05 EDUCATION</span><small>04</small></a>
-        <a class="menu-link" href="#contact"><span>06 CONTACT</span><small>05</small></a>
+
+        <a class="menu-link active" href="#home">
+          <span>01 HOME</span>
+          <small>ENTER</small>
+        </a>
+
+        <a class="menu-link" href="#about">
+          <span>02 PROFILE</span>
+          <small>01</small>
+        </a>
+
+        <a class="menu-link" href="#skills">
+          <span>03 SKILLS</span>
+          <small>02</small>
+        </a>
+
+        <a class="menu-link" href="#projects">
+          <span>04 PROJECTS</span>
+          <small>03</small>
+        </a>
+
+        <a class="menu-link" href="#experience">
+          <span>05 EDUCATION</span>
+          <small>04</small>
+        </a>
+
+        <a class="menu-link" href="#contact">
+          <span>06 CONTACT</span>
+          <small>05</small>
+        </a>
+
       </div>
+
     </div>
-    <div class="menu-close-zone" id="menuCloseZone"></div>
+
+    <div class="menu-close-zone" id="menuCloseZone">
+    </div>
+
   </nav>
 
+  <!-- =====================================================
+       MAIN PORTFOLIO
+       ===================================================== -->
+
   <main>
-    <!-- =======================================================
-         HOME / HERO
-         ======================================================= -->
-    <section class="hero" id="home">
-      <div class="slash" style="top:14%; left:-8%;"></div>
-      <div class="slash blue" style="top:24%; right:-12%;"></div>
-      <div class="halftone" style="right:2%; top:18%;"></div>
+
+    <!-- ===================================================
+         HOME
+         =================================================== -->
+
+    <section class="hero" id="home" aria-labelledby="heroName">
+
+      <div class="slash" style="top:14%; left:-8%;">
+      </div>
+
+      <div class="slash blue" style="top:24%; right:-12%;">
+      </div>
+
+      <div class="halftone" style="right:2%; top:18%;">
+      </div>
 
       <div class="hero-copy">
-        <div class="section-label">PLAYER PROFILE</div>
+
+        <div class="section-label">
+          PLAYER PROFILE
+        </div>
+
         <h1 class="mega-title">
-          <span id="heroName">JOFALIN</span><br>
-          <span class="outline">DIGITAL</span><br>
-          <span class="red">CREATOR</span>
+
+          <span id="heroName">
+            JOFALIN
+          </span>
+
+          <br>
+
+          <span class="outline">
+            DIGITAL
+          </span>
+
+          <br>
+
+          <span class="red">
+            CREATOR
+          </span>
+
         </h1>
 
         <p class="lead" id="heroIntro">
-          INFORMATION TEACHNOLOGY student and creative developer building bold interfaces,
-          interactive web experiences and practical digital products.
+
+          Jofalin is an Information Technology student and creative developer
+          building bold interfaces, interactive web experiences and practical
+          digital products.
+
         </p>
 
-        <button class="command" data-scroll="#projects">VIEW PROJECTS / EXECUTE</button>
+        <button class="command" data-scroll="#projects">
+
+          VIEW PROJECTS / EXECUTE
+
+        </button>
+
       </div>
+
+      <!-- PROFILE CARD -->
 
       <div class="hero-card">
-        <img class="hero-profile" id="profileImage" src="assets/profile.jpg" alt="JOFALIN profile photo" />
+
+        <img class="hero-profile" id="profileImage" src="assets/profile.jpg" alt="Jofalin profile photo" />
+
         <div class="hero-card-content">
+
           <div>
-            <div style="font:900 11px monospace; letter-spacing:3px;">PERSONAL DATA</div>
-            <div class="hero-card-name" id="cardName">JOFALIN</div>
+
+            <div style="
+                font:900 11px monospace;
+                letter-spacing:3px;
+              ">
+
+              PERSONAL DATA
+
+            </div>
+
+            <div class="hero-card-name" id="cardName">
+
+              JOFALIN
+
+            </div>
+
           </div>
+
           <div class="hero-card-bottom">
-            <span id="cardRole">CREATIVE DEVELOPER</span>
-            <span>LV. 20+</span>
+
+            <span id="cardRole">
+              CREATIVE DEVELOPER
+            </span>
+
+            <span>
+              LV. 20+
+            </span>
+
           </div>
+
         </div>
+
       </div>
+
+      <!-- MARQUEE -->
 
       <div class="marquee" aria-hidden="true">
+
         <div class="marquee-track">
-          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span><span>REPEAT</span>
-          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span><span>REPEAT</span>
-          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span><span>REPEAT</span>
-          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span><span>REPEAT</span>
+
+          <span>JOFALIN</span>
+          <span>DESIGN</span>
+          <span>CODE</span>
+          <span>CREATE</span>
+          <span>BUILD</span>
+          <span>WEB</span>
+          <span>UI/UX</span>
+          <span>3D</span>
+          <span>AI</span>
+          <span>JOFALIN</span>
+
+          <span>JOFALIN</span>
+          <span>DESIGN</span>
+          <span>CODE</span>
+          <span>CREATE</span>
+          <span>BUILD</span>
+          <span>WEB</span>
+          <span>UI/UX</span>
+          <span>3D</span>
+          <span>AI</span>
+          <span>JOFALIN</span>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- =======================================================
+    <!-- ===================================================
          PROFILE
-         ======================================================= -->
+         =================================================== -->
+
     <section class="about" id="about">
-      <div class="ink" style="width:300px;height:110px;right:2%;top:12%;"></div>
+
+      <div class="ink" style="
+          width:300px;
+          height:110px;
+          right:2%;
+          top:12%;
+        ">
+      </div>
+
       <div class="split">
-        <div class="number reveal">02</div>
+
+        <div class="number reveal">
+          02
+        </div>
 
         <div>
-          <div class="section-label reveal">PROFILE / PLAYER DATA</div>
+
+          <div class="section-label reveal">
+            PROFILE / PLAYER DATA
+          </div>
+
           <h2 class="mega-title reveal">
-            <span>WHO</span><br>
-            <span class="red">AM I?</span>
+
+            <span>
+              WHO
+            </span>
+
+            <br>
+
+            <span class="red">
+              AM I?
+            </span>
+
           </h2>
 
           <p class="lead reveal" id="aboutText">
-            I enjoy combining technology, visual design and problem solving to create
-            experiences that feel memorable instead of ordinary.
+
+            I enjoy combining technology, visual design and problem solving
+            to create experiences that feel memorable instead of ordinary.
+
           </p>
 
           <div class="bio-grid reveal">
-            <div class="bio-item"><b>FULL NAME</b><span id="fullName">YOUR FULL NAME</span></div>
-            <div class="bio-item"><b>COLLEGE</b><span id="college">YOUR COLLEGE / UNIVERSITY</span></div>
-            <div class="bio-item"><b>COURSE</b><span id="course">YOUR DEGREE / DEPARTMENT</span></div>
-            <div class="bio-item"><b>LOCATION</b><span id="location">YOUR CITY, INDIA</span></div>
-            <div class="bio-item"><b>INTEREST</b><span id="interest">WEB • UI/UX • 3D • AI</span></div>
-            <div class="bio-item"><b>CAREER GOAL</b><span id="goal">YOUR TARGET ROLE</span></div>
+
+            <div class="bio-item">
+              <b>FULL NAME</b>
+              <span id="fullName">
+                JOFALIN
+              </span>
+            </div>
+
+            <div class="bio-item">
+              <b>COLLEGE</b>
+              <span id="college">
+                YOUR COLLEGE / UNIVERSITY
+              </span>
+            </div>
+
+            <div class="bio-item">
+              <b>COURSE</b>
+              <span id="course">
+                INFORMATION TECHNOLOGY
+              </span>
+            </div>
+
+            <div class="bio-item">
+              <b>LOCATION</b>
+              <span id="location">
+                INDIA
+              </span>
+            </div>
+
+            <div class="bio-item">
+              <b>INTEREST</b>
+              <span id="interest">
+                WEB • UI/UX • 3D • AI
+              </span>
+            </div>
+
+            <div class="bio-item">
+              <b>CAREER GOAL</b>
+              <span id="goal">
+                3D MODEL DESIGNER
+              </span>
+            </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- =======================================================
+    <!-- ===================================================
          SKILLS
-         ======================================================= -->
+         =================================================== -->
+
     <section class="skills" id="skills">
-      <div class="slash" style="left:-12%; bottom:20%;"></div>
-      <div class="slash blue" style="right:-10%; top:18%;"></div>
 
-      <div class="section-label reveal">SKILL / LOADOUT</div>
+      <div class="slash" style="left:-12%; bottom:20%;">
+      </div>
+
+      <div class="slash blue" style="right:-10%; top:18%;">
+      </div>
+
+      <div class="section-label reveal">
+        SKILL / LOADOUT
+      </div>
+
       <h2 class="mega-title reveal">
-        <span class="outline">MY</span><br>
-        <span class="blue">ARSENAL</span>
+
+        <span class="outline">
+          MY
+        </span>
+
+        <br>
+
+        <span class="blue">
+          ARSENAL
+        </span>
+
       </h2>
 
-      <div class="skill-wall" id="skillWall"></div>
+      <div class="skill-wall" id="skillWall">
+      </div>
+
     </section>
 
-    <!-- =======================================================
+    <!-- ===================================================
          PROJECTS
-         ======================================================= -->
+         =================================================== -->
+
     <section class="projects" id="projects">
-      <div class="section-label reveal">PROJECTS / MISSIONS</div>
+
+      <div class="section-label reveal">
+        PROJECTS / MISSIONS
+      </div>
+
       <h2 class="mega-title reveal">
-        <span>SELECTED</span><br>
-        <span class="red">WORK</span>
+
+        <span>
+          SELECTED
+        </span>
+
+        <br>
+
+        <span class="red">
+          WORK
+        </span>
+
       </h2>
 
-      <div class="project-list" id="projectList"></div>
+      <div class="project-list" id="projectList">
+      </div>
+
     </section>
 
-    <!-- =======================================================
+    <!-- ===================================================
          EDUCATION / EXPERIENCE
-         ======================================================= -->
+         =================================================== -->
+
     <section id="experience">
-      <div class="section-label reveal">EDUCATION / EXPERIENCE</div>
+
+      <div class="section-label reveal">
+        EDUCATION / EXPERIENCE
+      </div>
+
       <h2 class="mega-title reveal">
-        <span class="outline">MY</span><br>
-        <span>JOURNEY</span>
+
+        <span class="outline">
+          MY
+        </span>
+
+        <br>
+
+        <span>
+          JOURNEY
+        </span>
+
       </h2>
 
-      <div class="timeline" id="educationTimeline"></div>
+      <div class="timeline" id="educationTimeline">
+      </div>
 
       <div style="height:70px"></div>
 
-      <div class="section-label reveal">EXPERIENCE / MISSIONS</div>
-      <div class="timeline" id="experienceTimeline"></div>
+      <div class="section-label reveal">
+        EXPERIENCE / MISSIONS
+      </div>
+
+      <div class="timeline" id="experienceTimeline">
+      </div>
 
       <div style="height:70px"></div>
 
-      <div class="section-label reveal">CERTIFICATIONS</div>
-      <div class="timeline" id="certificationTimeline"></div>
+      <div class="section-label reveal">
+        CERTIFICATIONS
+      </div>
+
+      <div class="timeline" id="certificationTimeline">
+      </div>
+
     </section>
 
-    <!-- =======================================================
+    <!-- ===================================================
          CONTACT
-         ======================================================= -->
+         =================================================== -->
+
     <section class="contact" id="contact">
+
       <div class="contact-inner">
-        <div class="section-label reveal">CONTACT / CO-OPERATION</div>
+
+        <div class="section-label reveal">
+          CONTACT / CO-OPERATION
+        </div>
+
         <h2 class="mega-title reveal">
-          LET'S<br>
-          <span class="outline">BUILD</span><br>
-          <span>TOGETHER.</span>
+
+          LET'S
+          <br>
+
+          <span class="outline">
+            BUILD
+          </span>
+
+          <br>
+
+          <span>
+            TOGETHER.
+          </span>
+
         </h2>
 
         <div class="contact-box reveal">
-          <a class="contact-link" id="githubLink" href="https://github.com/jofalin" target="_blank" rel="noreferrer">
-            <small>GITHUB</small>
+
+          <!-- GITHUB -->
+
+          <a class="contact-link" id="githubLink" href="https://github.com/jofalin" target="_blank"
+            rel="noopener noreferrer">
+
+            <small>
+              GITHUB
+            </small>
+
             github.com/jofalin
+
           </a>
+
+          <!-- EMAIL -->
 
           <a class="contact-link" id="emailLink" href="mailto:jofalin.502330@sxcce.edu.in">
-            <small>EMAIL</small>
+
+            <small>
+              EMAIL
+            </small>
+
             jofalin.502330@sxcce.edu.in
+
           </a>
 
-          <a class="contact-link" id="linkedinLink" href="#" target="_blank" rel="noreferrer">
-            <small>LINKEDIN</small>
+          <!-- LINKEDIN -->
+
+          <a class="contact-link" id="linkedinLink" href="#" target="_blank" rel="noopener noreferrer">
+
+            <small>
+              LINKEDIN
+            </small>
+
             CONNECT WITH ME
+
           </a>
 
-          <a class="contact-link" id="resumeLink" href="#" target="_blank" rel="noreferrer">
-            <small>RESUME</small>
+          <!-- RESUME -->
+
+          <a class="contact-link" id="resumeLink" href="#" target="_blank" rel="noopener noreferrer">
+
+            <small>
+              RESUME
+            </small>
+
             OPEN / DOWNLOAD RESUME
+
           </a>
 
-          <a class="contact-link" id="instagramLink" href="#" target="_blank" rel="noreferrer">
-            <small>OTHER / SOCIAL</small>
+          <!-- SOCIAL -->
+
+          <a class="contact-link" id="instagramLink" href="#" target="_blank" rel="noopener noreferrer">
+
+            <small>
+              OTHER / SOCIAL
+            </small>
+
             SOCIAL PROFILE
+
           </a>
+
+          <!-- HOME -->
 
           <a class="contact-link" href="#home" data-scroll="#home">
-            <small>SYSTEM</small>
+
+            <small>
+              SYSTEM
+            </small>
+
             RETURN TO START
+
           </a>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
   <footer>
-    <span>© <span id="year"></span> <span id="footerName">JOFALIN</span> // ALL RIGHTS RESERVED</span>
-    <span>ORIGINAL PORTFOLIO UI / NO GAME ASSETS USED</span>
+
+    <span>
+
+      ©
+      <span id="year"></span>
+
+      <span id="footerName">
+        JOFALIN
+      </span>
+
+      // ALL RIGHTS RESERVED
+
+    </span>
+
+    <span>
+      JOFALIN // OFFICIAL PORTFOLIO
+    </span>
+
   </footer>
+
   <!-- =====================================================
        PORTFOLIO DATA SYSTEM
-       Edit portfolio-data.js when updating your portfolio.
-       ====================================================== -->
+       ===================================================== -->
+
   <script src="portfolio-data.js"></script>
   <script src="portfolio-engine.js"></script>
+
+  <!-- =====================================================
+       SEO / PORTFOLIO ENHANCEMENT SCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /*
+      This keeps the portfolio identity consistent.
+
+      If portfolio-data.js contains your personal data,
+      it will still control the visible portfolio.
+    */
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* Make sure the browser title is strongly associated with Jofalin */
+
+      document.title =
+        "Jofalin | Information Technology Student & Creative Developer";
+
+
+      /* Make sure footer identity is always available */
+
+      const footerName =
+        document.getElementById("footerName");
+
+      if (footerName && !footerName.textContent.trim()) {
+        footerName.textContent = "JOFALIN";
+      }
+
+
+      /* Make sure brand identity is available */
+
+      const brandName =
+        document.getElementById("brandName");
+
+      if (brandName) {
+        brandName.textContent =
+          "JOFALIN // CREATIVE DEV";
+      }
+
+
+      /* Dynamic year */
+
+      const year =
+        document.getElementById("year");
+
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
+      }
+
+    });
+
+  </script>
+
 </body>
 
 </html>
