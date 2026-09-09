@@ -36,7 +36,7 @@ const PORTFOLIO = {
             "I build interactive digital experiences using technology, design and creativity.",
 
         about:
-            "I am a computer science student interested in web development, UI/UX, artificial intelligence, 3D design and creative technology.",
+            "I am a information technology  student interested in web development, UI/UX, artificial intelligence, 3D design and creative technology.",
 
         location:
             "Tamil Nadu, India",
