@@ -348,7 +348,7 @@ const PORTFOLIO = {
             "https://www.linkedin.com/in/YOUR-LINKEDIN-ID",
 
         instagram:
-            "https://www.instagram.com/_jo_fa_lin_/",
+            "https://www.instagram.com/_jo_fa_lin_?stkn=MTQ2YzF1cGs3ZHl0Nw%3D%3D&utm_source=qr",
 
         portfolio:
             "https://yourwebsite.com",
