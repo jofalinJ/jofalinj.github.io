@@ -42,16 +42,16 @@ const PORTFOLIO = {
             "Tamil Nadu, India",
 
         college:
-            "YOUR COLLEGE NAME",
+            "St. Xavier's Catholic College of Engineering",
 
         degree:
-            "B.E / B.Tech COMPUTER SCIENCE",
+            "B.Tech Information Technology",
 
         year:
             "2023 — PRESENT",
 
         school:
-            "YOUR SCHOOL NAME",
+            "Amala Matric Higer Secondary School",
 
         careerGoal:
             "3D MODEL DESIGNER / CREATIVE DEVELOPER",
@@ -186,32 +186,32 @@ const PORTFOLIO = {
             status: "DESIGN",
             link: "#"
         },
-
         {
             number: "03",
-            title: "Jofabus",
+            title: "Movie Ticket Booking Management System",
             category: "PRODUCT",
             description:
-                "Mobile-first bus booking experience including route discovery, seat selection and booking flow.",
+                "eveloped a Java GUI application for movie listings, seat selection, and ticket booking with Admin & Customer modules, secure login, and real-time booking management.",
             technologies:
-                "UI/UX • FIGMA • PRODUCT DESIGN",
-            year: "2026",
+                "UI/UX • FIGMA • PRODUCT DESIGN • WEBSITE ",
+            year: "2025",
             status: "COMPLETED",
             link: "#"
         },
 
         {
             number: "04",
-            title: "AI-Powered Crowd Intelligence and Decision Support System",
+            title: "Smart Soil Analyzer and Crop Advisor (IOT)",
             category: "PRODUCT",
             description:
-                "AI-powered crowd intelligence and decision support concept focused on analyzing crowd conditions and supporting better decisions.",
+                "Built an ESP32-based soil monitoring system using DHT11, moisture, and pH sensors to analyze soil health and provide crop recommendations for improved agricultural decision-making",
             technologies:
-                "UI/UX • FIGMA • PRODUCT DESIGN",
+                "UI/UX • IOT • PRODUCT DESIGN",
             year: "2026",
-            status: "UNCOMPLETED",
+            status: "COMPLETED",
             link: "#"
         },
+
         {
             number: "05",
             title: "AI-Powered Crowd Intelligence and Decision Support System",
@@ -221,53 +221,7 @@ const PORTFOLIO = {
             technologies:
                 "UI/UX • FIGMA • PRODUCT DESIGN",
             year: "2026",
-            status: "UNCOMPLETED",
-            link: "#"
-        },
-        {
-            number: "05",
-            title: "AI-Powered Crowd Intelligence and Decision Support System",
-            category: "PRODUCT",
-            description:
-                "AI-powered crowd intelligence and decision support concept focused on analyzing crowd conditions and supporting better decisions.",
-            technologies:
-                "UI/UX • FIGMA • PRODUCT DESIGN",
-            year: "2026",
-            status: "UNCOMPLETED",
-            link: "#"
-        }, {
-            number: "05",
-            title: "AI-Powered Crowd Intelligence and Decision Support System",
-            category: "PRODUCT",
-            description:
-                "AI-powered crowd intelligence and decision support concept focused on analyzing crowd conditions and supporting better decisions.",
-            technologies:
-                "UI/UX • FIGMA • PRODUCT DESIGN",
-            year: "2026",
-            status: "UNCOMPLETED",
-            link: "#"
-        }, {
-            number: "05",
-            title: "AI-Powered Crowd Intelligence and Decision Support System",
-            category: "PRODUCT",
-            description:
-                "AI-powered crowd intelligence and decision support concept focused on analyzing crowd conditions and supporting better decisions.",
-            technologies:
-                "UI/UX • FIGMA • PRODUCT DESIGN",
-            year: "2026",
-            status: "UNCOMPLETED",
-            link: "#"
-        },
-        {
-            number: "06",
-            title: "AI-Powered Crowd Intelligence and Decision Support System",
-            category: "PRODUCT",
-            description:
-                "AI-powered crowd intelligence and decision support concept focused on analyzing crowd conditions and supporting better decisions.",
-            technologies:
-                "UI/UX • FIGMA • PRODUCT DESIGN",
-            year: "2026",
-            status: "UNCOMPLETED",
+            status: "COMPLETED",
             link: "#"
         }
 
@@ -282,18 +236,18 @@ const PORTFOLIO = {
 
         {
             year: "2023 — PRESENT",
-            institution: "YOUR COLLEGE NAME",
-            course: "B.E / B.Tech COMPUTER SCIENCE",
+            institution: "St. Xavier's Catholic College of Engineering ",
+            course: "B.Tech INFORMATION TECHNOLOGY",
             description:
-                "Add your degree, department, achievements, activities and relevant coursework."
+                "NCC CADET and  ECO CLUB MEMBER"
         },
 
         {
             year: "2021 — 2023",
-            institution: "YOUR HIGHER SECONDARY SCHOOL",
-            course: "HIGHER SECONDARY",
+            institution: "AMALA MATRIC  HIGHER SECONDARY SCHOOL",
+            course: "COMPUTER SCIENCE",
             description:
-                "Add your school details, achievements and activities."
+                "#"
         }
 
     ],
@@ -306,11 +260,11 @@ const PORTFOLIO = {
     experience: [
 
         {
-            year: "2026",
-            organization: "YOUR COMPANY / ORGANIZATION",
-            role: "INTERNSHIP / ROLE",
+            year: "2025",
+            organization: "KELTRON, Trivandrum",
+            role: "INTERN",
             description:
-                "Describe what you worked on, technologies used and achievements."
+                "Gained hands-on experience in IoT technologies, sensor integration, and embedded programming using ESP32 and Arduino platforms. Independently worked on a mini-project “Smart Soil Analyzer & Crop Advisor”, applying IoT for smart agriculture solutions."
         }
 
     ],
@@ -345,7 +299,7 @@ const PORTFOLIO = {
             "https://github.com/jofalin",
 
         linkedin:
-            "https://www.linkedin.com/in/YOUR-LINKEDIN-ID",
+            "https://www.linkedin.com/in/jofalin-j-680b132a3?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
 
         instagram:
             "https://www.instagram.com/_jo_fa_lin_?stkn=MTQ2YzF1cGs3ZHl0Nw%3D%3D&utm_source=qr",
