@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <title>JOFALIN // PORTFOLIO</title>
+
+  <style>
+    /* =========================================================
+       PERSONA-INSPIRED ORIGINAL PORTFOLIO UI
+       No game characters, logos, screenshots, or copyrighted art.
+       Replace the marked PLACEHOLDER fields in the DATA object.
+       ========================================================= */
+
+    :root {
+      --red: #ff1744;
+      --red-dark: #a90028;
+      --blue: #164dff;
+      --blue-dark: #07133f;
+      --white: #f5f5f5;
+      --black: #050505;
+      --gray: #161616;
+      --gray-2: #242424;
+      --paper: #ededed;
+      --speed: 520ms;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--black);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(22, 77, 255, .16), transparent 26rem),
+        radial-gradient(circle at 90% 80%, rgba(255, 23, 68, .13), transparent 28rem),
+        var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: crosshair;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 4px 4px, 4px 4px;
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    ::selection {
+      background: var(--red);
+      color: #fff;
+    }
+
+    /* ---------- LOADER ---------- */
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      background: #000;
+      transition: opacity 650ms ease, visibility 650ms ease;
+    }
+
+    #loader.done {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-box {
+      width: min(680px, 84vw);
+      transform: skewX(-9deg);
+    }
+
+    .loader-title {
+      margin: 0 0 20px;
+      font-size: clamp(42px, 8vw, 96px);
+      line-height: .82;
+      font-weight: 1000;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+      text-shadow: 7px 7px 0 var(--red);
+    }
+
+    .loader-track {
+      height: 14px;
+      background: #1c1c1c;
+      border: 2px solid #fff;
+      overflow: hidden;
+    }
+
+    .loader-progress {
+      width: 0;
+      height: 100%;
+      background: var(--red);
+      animation: loading 1.7s var(--ease) forwards;
+    }
+
+    .loader-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font: 900 11px/1 monospace;
+      letter-spacing: 2px;
+    }
+
+    @keyframes loading {
+      to {
+        width: 100%;
+      }
+    }
+
+    /* ---------- GLOBAL DECOR ---------- */
+
+    .slash {
+      position: absolute;
+      width: 34vw;
+      height: 12px;
+      background: var(--red);
+      transform: rotate(-28deg) skewX(-20deg);
+      opacity: .85;
+      pointer-events: none;
+    }
+
+    .slash.blue {
+      background: var(--blue);
+    }
+
+    .halftone {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      opacity: .34;
+      pointer-events: none;
+      background-image: radial-gradient(#fff 1.3px, transparent 1.3px);
+      background-size: 8px 8px;
+      mask-image: linear-gradient(135deg, #000, transparent);
+      -webkit-mask-image: linear-gradient(135deg, #000, transparent);
+    }
+
+    .ink {
+      position: absolute;
+      pointer-events: none;
+      border: 3px solid currentColor;
+      opacity: .35;
+      transform: rotate(-8deg);
+    }
+
+    /* ---------- TOP HUD ---------- */
+
+    .hud {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      background: rgba(0, 0, 0, .82);
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      transform: skewX(-10deg);
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: #000;
+      font-size: 15px;
+      box-shadow: 5px 5px 0 var(--blue);
+    }
+
+    .brand-name {
+      font-size: 17px;
+    }
+
+    .hud-status {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font: 900 10px/1 monospace;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      margin-right: 6px;
+      border-radius: 50%;
+      background: #36ff83;
+      box-shadow: 0 0 14px #36ff83;
+    }
+
+    /* ---------- SIDE MENU ---------- */
+
+    .menu-toggle {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 700;
+      width: 64px;
+      height: 64px;
+      border: 0;
+      background: var(--red);
+      color: #000;
+      font-size: 12px;
+      font-weight: 1000;
+      cursor: pointer;
+      transform: rotate(-5deg);
+      box-shadow: 7px 7px 0 #fff;
+    }
+
+    .menu-toggle:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .side-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 650;
+      display: grid;
+      grid-template-columns: minmax(260px, 390px) 1fr;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .side-menu.open {
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .menu-panel {
+      height: 100%;
+      padding: 90px 34px 30px;
+      background:
+        linear-gradient(135deg, rgba(255, 23, 68, .94), rgba(125, 0, 28, .96)),
+        #d00;
+      clip-path: polygon(0 0, 96% 0, 100% 3%, 92% 100%, 0 100%);
+      transform: translateX(-110%) skewX(-4deg);
+      transition: transform var(--speed) var(--ease);
+    }
+
+    .side-menu.open .menu-panel {
+      transform: translateX(0) skewX(-4deg);
+    }
+
+    .menu-panel h2 {
+      margin: 0 0 35px;
+      font-size: 13px;
+      letter-spacing: 4px;
+      font-family: monospace;
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .menu-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      background: #050505;
+      border: 2px solid #050505;
+      color: #fff;
+      font-size: clamp(24px, 3vw, 39px);
+      font-weight: 1000;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      transform: skewX(8deg);
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .menu-link span {
+      transform: skewX(-8deg);
+    }
+
+    .menu-link:hover,
+    .menu-link.active {
+      background: #fff;
+      color: #000;
+      transform: translateX(15px) skewX(8deg);
+    }
+
+    .menu-link small {
+      font: 900 10px monospace;
+      opacity: .65;
+    }
+
+    .menu-close-zone {
+      background: rgba(0, 0, 0, .38);
+      backdrop-filter: blur(3px);
+    }
+
+    /* ---------- MAIN ---------- */
+
+    main {
+      position: relative;
+    }
+
+    section {
+      position: relative;
+      min-height: 100vh;
+      padding: 120px 7vw 90px;
+      overflow: hidden;
+      scroll-margin-top: 50px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 8px 13px;
+      background: #fff;
+      color: #000;
+      font: 1000 11px/1 monospace;
+      letter-spacing: 2px;
+      transform: skewX(-10deg);
+    }
+
+    .section-label::before {
+      content: "//";
+      color: var(--red);
+    }
+
+    .mega-title {
+      margin: 0;
+      max-width: 1000px;
+      font-size: clamp(56px, 11vw, 160px);
+      line-height: .76;
+      font-weight: 1000;
+      letter-spacing: -8px;
+      text-transform: uppercase;
+    }
+
+    .mega-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 2px #fff;
+    }
+
+    .mega-title .red {
+      color: var(--red);
+    }
+
+    .mega-title .blue {
+      color: var(--blue);
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 32px 0;
+      color: #d7d7d7;
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.5;
+    }
+
+    .command {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #fff;
+      color: #000;
+      font: 1000 12px monospace;
+      text-transform: uppercase;
+      transform: skewX(-8deg);
+      cursor: pointer;
+      border: 0;
+    }
+
+    .command:hover {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .command::before {
+      content: "✦";
+      color: var(--red);
+    }
+
+    .hero {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1.25fr .75fr;
+      min-height: 100vh;
+      padding-top: 100px;
+      background:
+        linear-gradient(115deg, transparent 0 48%, rgba(255, 23, 68, .08) 48% 52%, transparent 52%),
+        linear-gradient(165deg, transparent 0 64%, rgba(22, 77, 255, .08) 64% 70%, transparent 70%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 75vw;
+      height: 50vh;
+      right: -28vw;
+      bottom: -20vh;
+      background: var(--blue);
+      opacity: .09;
+      transform: rotate(-16deg);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      animation: heroIn 900ms var(--ease) both;
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) skewX(-4deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) skewX(0);
+      }
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      justify-self: end;
+      width: min(360px, 75vw);
+      aspect-ratio: 4 / 5;
+      background: var(--red);
+      transform: rotate(6deg) skewX(-4deg);
+      box-shadow: 22px 22px 0 var(--blue);
+      overflow: hidden;
+      animation: cardIn 900ms 180ms var(--ease) both;
+    }
+
+    /* PROFILE IMAGE
+       Put your real photo at assets/profile.jpg.
+       Change personal.profileImage in portfolio-data.js if needed.
+    */
+    .hero-profile {
+      position: absolute;
+      inset: 13% 8% 16% 12%;
+      z-index: 1;
+      width: 80%;
+      height: 71%;
+      object-fit: cover;
+      object-position: center;
+      opacity: .92;
+      clip-path: polygon(0 9%, 72% 0, 100% 17%, 80% 100%, 4% 86%);
+      filter: contrast(1.08) saturate(.95);
+    }
+
+    .hero-profile-placeholder {
+      display: grid;
+      place-items: center;
+      background: #101010;
+      color: #fff;
+      font: 900 11px/1.4 monospace;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 30px;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translate(70px, -30px) rotate(12deg) skewX(-4deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: rotate(6deg) skewX(-4deg);
+      }
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      background: #000;
+      opacity: .8;
+    }
+
+    .hero-card::before {
+      inset: 13% 8% 16% 12%;
+      z-index: 0;
+      clip-path: polygon(0 9%, 72% 0, 100% 17%, 80% 100%, 4% 86%);
+    }
+
+    .hero-card::after {
+      z-index: 1;
+      width: 160%;
+      height: 20px;
+      left: -25%;
+      top: 47%;
+      transform: rotate(-35deg);
+      box-shadow:
+        0 45px 0 #fff,
+        0 90px 0 var(--blue),
+        0 135px 0 #000;
+    }
+
+    .hero-card-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .hero-card-name {
+      font-size: 40px;
+      font-weight: 1000;
+      line-height: .85;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 #000;
+    }
+
+    .hero-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      font: 900 10px monospace;
+      letter-spacing: 1px;
+    }
+
+    .marquee {
+      position: absolute;
+      left: -5vw;
+      right: -5vw;
+      bottom: 7vh;
+      z-index: 3;
+      overflow: hidden;
+      padding: 14px 0;
+      background: #fff;
+      color: #000;
+      transform: rotate(-3deg);
+      border-top: 4px solid #000;
+      border-bottom: 4px solid #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 18s linear infinite;
+    }
+
+    .marquee span {
+      padding: 0 18px;
+      font-size: 18px;
+      font-weight: 1000;
+      white-space: nowrap;
+    }
+
+    .marquee span:nth-child(odd) {
+      color: var(--red);
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about {
+      background:
+        linear-gradient(90deg, rgba(255, 23, 68, .06), transparent 30%),
+        #070707;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 7vw;
+      align-items: start;
+    }
+
+    .number {
+      font: 1000 clamp(100px, 18vw, 260px)/.7 monospace;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--red);
+      opacity: .7;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 40px;
+      background: #fff;
+      border: 2px solid #fff;
+    }
+
+    .bio-item {
+      min-height: 120px;
+      padding: 20px;
+      background: #0c0c0c;
+    }
+
+    .bio-item b {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font: 900 10px monospace;
+      letter-spacing: 2px;
+    }
+
+    .bio-item span {
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    /* ---------- SKILLS ---------- */
+
+    .skills {
+      background: var(--blue-dark);
+    }
+
+    .skills::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .15;
+      background-image: radial-gradient(#fff 1px, transparent 1px);
+      background-size: 9px 9px;
+      mask-image: linear-gradient(90deg, #000, transparent 75%);
+    }
+
+    .skill-wall {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 60px;
+    }
+
+    .skill {
+      min-height: 170px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #080808;
+      border: 2px solid #fff;
+      transform: skewX(-5deg);
+      transition: transform 220ms var(--ease), background 220ms ease;
+    }
+
+    .skill:nth-child(2n) {
+      background: var(--red);
+      color: #000;
+    }
+
+    .skill:nth-child(3n) {
+      transform: skewX(5deg) rotate(2deg);
+    }
+
+    .skill:hover {
+      transform: translateY(-12px) rotate(-2deg) skewX(-3deg);
+      background: #fff;
+      color: #000;
+    }
+
+    .skill small {
+      font: 900 10px monospace;
+    }
+
+    .skill strong {
+      font-size: clamp(25px, 3vw, 44px);
+      line-height: .85;
+      text-transform: uppercase;
+    }
+
+    .meter {
+      height: 7px;
+      background: rgba(255, 255, 255, .2);
+      overflow: hidden;
+    }
+
+    .meter i {
+      display: block;
+      height: 100%;
+      width: var(--level);
+      background: currentColor;
+      transform-origin: left;
+      animation: meterIn 1s var(--ease) both;
+    }
+
+    @keyframes meterIn {
+      from {
+        transform: scaleX(0);
+      }
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .projects {
+      background: #eee;
+      color: #050505;
+    }
+
+    .projects .section-label {
+      background: #050505;
+      color: #fff;
+    }
+
+    .project-list {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      margin-top: 55px;
+    }
+
+    .project {
+      position: relative;
+      min-height: 180px;
+      padding: 28px 34px;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 25px;
+      background: #050505;
+      color: #fff;
+      overflow: hidden;
+      transform: skewX(-4deg);
+      transition: transform 250ms var(--ease), background 250ms ease;
+    }
+
+    .project:hover {
+      transform: translateX(18px) skewX(-2deg) rotate(-1deg);
+    }
+
+    /* PROJECT COLOR ROTATION
+       portfolio-engine.js automatically cycles colors for every project.
+       You do NOT need to add a color when adding a new project.
+    */
+    .project {
+      background: var(--project-bg, #050505);
+      color: var(--project-fg, #fff);
+      border-left: 10px solid var(--project-accent, var(--red));
+      box-shadow: 12px 12px 0 var(--project-shadow, rgba(0,0,0,.16));
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      width: 42%;
+      height: 260%;
+      right: -15%;
+      top: -80%;
+      background: var(--project-accent, var(--red));
+      opacity: .12;
+      transform: rotate(28deg);
+      pointer-events: none;
+    }
+
+    .project-tag {
+      background: var(--project-tag-bg, #fff);
+      color: var(--project-tag-fg, #000);
+    }
+
+    .project-number {
+      font: 1000 50px/.8 monospace;
+      opacity: .5;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 62px);
+      line-height: .82;
+      text-transform: uppercase;
+    }
+
+    .project p {
+      max-width: 650px;
+      margin: 13px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: .78;
+    }
+
+    .project-tag {
+      align-self: start;
+      padding: 8px 10px;
+      background: #fff;
+      color: #000;
+      font: 900 10px monospace;
+    }
+
+    /* ---------- EXPERIENCE / EDUCATION ---------- */
+
+    .timeline {
+      position: relative;
+      max-width: 1050px;
+      margin: 70px auto 0;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 32px;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--red);
+      transform: skewX(-10deg);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 35px;
+      margin-bottom: 38px;
+    }
+
+    .timeline-dot {
+      position: relative;
+      z-index: 2;
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #000;
+      border: 4px solid #000;
+      font: 1000 12px monospace;
+      transform: rotate(8deg);
+    }
+
+    .timeline-card {
+      padding: 25px;
+      background: #101010;
+      border-left: 8px solid var(--blue);
+      box-shadow: 10px 10px 0 rgba(255, 23, 68, .45);
+    }
+
+    .timeline-card .time {
+      color: var(--red);
+      font: 900 11px monospace;
+      letter-spacing: 2px;
+    }
+
+    .timeline-card h3 {
+      margin: 8px 0;
+      font-size: clamp(24px, 4vw, 43px);
+      text-transform: uppercase;
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: #c9c9c9;
+      line-height: 1.55;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact {
+      min-height: 85vh;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(120deg, var(--red) 0 42%, #080808 42%);
+    }
+
+    .contact-inner {
+      width: min(1100px, 100%);
+      position: relative;
+    }
+
+    .contact .mega-title {
+      color: #fff;
+      text-shadow: 8px 8px 0 #000;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 45px;
+    }
+
+    .contact-link {
+      display: block;
+      padding: 18px 20px;
+      background: #fff;
+      color: #000;
+      border: 3px solid #000;
+      font-weight: 1000;
+      text-transform: uppercase;
+      transform: skewX(-7deg);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .contact-link:hover {
+      transform: translateX(12px) skewX(-7deg);
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .contact-link small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--red);
+      font: 900 10px monospace;
+    }
+
+    .contact-link:hover small {
+      color: #fff;
+    }
+
+    footer {
+      padding: 25px 7vw 45px;
+      background: #000;
+      color: #777;
+      font: 900 10px monospace;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* ---------- SCROLL REVEAL ---------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px) skewX(-3deg);
+      transition: opacity 750ms var(--ease), transform 750ms var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) skewX(0);
+    }
+
+    /* ---------- CUSTOM CURSOR ---------- */
+
+    .cursor {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      z-index: 10000;
+      pointer-events: none;
+      border: 2px solid #fff;
+      mix-blend-mode: difference;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: width 120ms ease, height 120ms ease, background 120ms ease;
+    }
+
+    .cursor.big {
+      width: 42px;
+      height: 42px;
+      background: #fff;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 850px) {
+      .hud-status {
+        display: none;
+      }
+
+      section {
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding-bottom: 160px;
+      }
+
+      .hero-card {
+        justify-self: center;
+        width: min(320px, 70vw);
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .number {
+        display: none;
+      }
+
+      .skill-wall {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project {
+        grid-template-columns: 55px 1fr;
+      }
+
+      .project-tag {
+        display: none;
+      }
+
+      .contact {
+        background: linear-gradient(160deg, var(--red) 0 38%, #080808 38%);
+      }
+
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hud {
+        padding: 0 14px;
+      }
+
+      .brand-name {
+        font-size: 13px;
+      }
+
+      .side-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-close-zone {
+        display: none;
+      }
+
+      .menu-panel {
+        clip-path: none;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .mega-title {
+        letter-spacing: -4px;
+      }
+
+      .skill-wall {
+        grid-template-columns: 1fr;
+      }
+
+      .skill:nth-child(3n) {
+        transform: skewX(-5deg);
+      }
+
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        padding: 22px;
+        grid-template-columns: 45px 1fr;
+      }
+
+      .project h3 {
+        font-size: 31px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 55px 1fr;
+        gap: 20px;
+      }
+
+      .timeline-dot {
+        width: 52px;
+        height: 52px;
+      }
+
+      .timeline::before {
+        left: 24px;
+      }
+
+      .cursor {
+        display: none;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        transition-duration: 1ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loader">
+    <div class="loader-box">
+      <h1 class="loader-title">PORTFOLIO<br>INITIALIZE</h1>
+      <div class="loader-track">
+        <div class="loader-progress"></div>
+      </div>
+      <div class="loader-meta">
+        <span>LOADING PERSONAL DATA</span>
+        <span>100%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+
+  <header class="hud">
+    <a class="brand" href="#home" aria-label="Home">
+      <span class="brand-mark">J</span>
+      <span class="brand-name" id="brandName">JOFALIN // CREATIVE DEV</span>
+    </a>
+    <div class="hud-status">
+      <span><i class="dot"></i>AVAILABLE FOR OPPORTUNITIES</span>
+      <span id="hudClock">00:00:00</span>
+    </div>
+  </header>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open portfolio menu" aria-expanded="false">
+    MENU
+  </button>
+
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="menu-panel">
+      <h2>COMMAND / NAVIGATION</h2>
+      <div class="menu-list">
+        <a class="menu-link active" href="#home"><span>01 HOME</span><small>ENTER</small></a>
+        <a class="menu-link" href="#about"><span>02 PROFILE</span><small>01</small></a>
+        <a class="menu-link" href="#skills"><span>03 SKILLS</span><small>02</small></a>
+        <a class="menu-link" href="#projects"><span>04 PROJECTS</span><small>03</small></a>
+        <a class="menu-link" href="#experience"><span>05 EDUCATION</span><small>04</small></a>
+        <a class="menu-link" href="#contact"><span>06 CONTACT</span><small>05</small></a>
+      </div>
+    </div>
+    <div class="menu-close-zone" id="menuCloseZone"></div>
+  </nav>
+
+  <main>
+    <!-- =======================================================
+         HOME / HERO
+         ======================================================= -->
+    <section class="hero" id="home">
+      <div class="slash" style="top:14%; left:-8%;"></div>
+      <div class="slash blue" style="top:24%; right:-12%;"></div>
+      <div class="halftone" style="right:2%; top:18%;"></div>
+
+      <div class="hero-copy">
+        <div class="section-label">PLAYER PROFILE / 001</div>
+        <h1 class="mega-title">
+          <span id="heroName">JOFALIN</span><br>
+          <span class="outline">DIGITAL</span><br>
+          <span class="red">CREATOR</span>
+        </h1>
+
+        <p class="lead" id="heroIntro">
+          Computer science student and creative developer building bold interfaces,
+          interactive web experiences and practical digital products.
+        </p>
+
+        <button class="command" data-scroll="#projects">VIEW PROJECTS / EXECUTE</button>
+      </div>
+
+      <div class="hero-card">
+        <img
+          class="hero-profile"
+          id="profileImage"
+          src="assets/profile.jpg"
+          alt="JOFALIN profile photo"
+        />
+        <div class="hero-card-content">
+          <div>
+            <div style="font:900 11px monospace; letter-spacing:3px;">PERSONAL DATA</div>
+            <div class="hero-card-name" id="cardName">JOFALIN</div>
+          </div>
+          <div class="hero-card-bottom">
+            <span id="cardRole">CREATIVE DEVELOPER</span>
+            <span>LV. 20+</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span>
+          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span>
+          <span>DESIGN</span><span>CODE</span><span>CREATE</span><span>BUILD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         PROFILE
+         ======================================================= -->
+    <section class="about" id="about">
+      <div class="ink" style="width:300px;height:110px;right:2%;top:12%;"></div>
+      <div class="split">
+        <div class="number reveal">02</div>
+
+        <div>
+          <div class="section-label reveal">PROFILE / PLAYER DATA</div>
+          <h2 class="mega-title reveal">
+            <span>WHO</span><br>
+            <span class="red">AM I?</span>
+          </h2>
+
+          <p class="lead reveal" id="aboutText">
+            I enjoy combining technology, visual design and problem solving to create
+            experiences that feel memorable instead of ordinary.
+          </p>
+
+          <div class="bio-grid reveal">
+            <div class="bio-item"><b>FULL NAME</b><span id="fullName">YOUR FULL NAME</span></div>
+            <div class="bio-item"><b>COLLEGE</b><span id="college">YOUR COLLEGE / UNIVERSITY</span></div>
+            <div class="bio-item"><b>COURSE</b><span id="course">YOUR DEGREE / DEPARTMENT</span></div>
+            <div class="bio-item"><b>LOCATION</b><span id="location">YOUR CITY, INDIA</span></div>
+            <div class="bio-item"><b>INTEREST</b><span id="interest">WEB • UI/UX • 3D • AI</span></div>
+            <div class="bio-item"><b>CAREER GOAL</b><span id="goal">YOUR TARGET ROLE</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         SKILLS
+         ======================================================= -->
+    <section class="skills" id="skills">
+      <div class="slash" style="left:-12%; bottom:20%;"></div>
+      <div class="slash blue" style="right:-10%; top:18%;"></div>
+
+      <div class="section-label reveal">SKILL / LOADOUT</div>
+      <h2 class="mega-title reveal">
+        <span class="outline">MY</span><br>
+        <span class="blue">ARSENAL</span>
+      </h2>
+
+      <div class="skill-wall" id="skillWall"></div>
+    </section>
+
+    <!-- =======================================================
+         PROJECTS
+         ======================================================= -->
+    <section class="projects" id="projects">
+      <div class="section-label reveal">PROJECTS / MISSIONS</div>
+      <h2 class="mega-title reveal">
+        <span>SELECTED</span><br>
+        <span class="red">WORK</span>
+      </h2>
+
+      <div class="project-list" id="projectList"></div>
+    </section>
+
+    <!-- =======================================================
+         EDUCATION / EXPERIENCE
+         ======================================================= -->
+    <section id="experience">
+      <div class="section-label reveal">EDUCATION / EXPERIENCE</div>
+      <h2 class="mega-title reveal">
+        <span class="outline">MY</span><br>
+        <span>JOURNEY</span>
+      </h2>
+
+      <div class="timeline" id="educationTimeline"></div>
+
+      <div style="height:70px"></div>
+
+      <div class="section-label reveal">EXPERIENCE / MISSIONS</div>
+      <div class="timeline" id="experienceTimeline"></div>
+
+      <div style="height:70px"></div>
+
+      <div class="section-label reveal">CERTIFICATIONS</div>
+      <div class="timeline" id="certificationTimeline"></div>
+    </section>
+
+    <!-- =======================================================
+         CONTACT
+         ======================================================= -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <div class="section-label reveal">CONTACT / CO-OPERATION</div>
+        <h2 class="mega-title reveal">
+          LET'S<br>
+          <span class="outline">BUILD</span><br>
+          <span>TOGETHER.</span>
+        </h2>
+
+        <div class="contact-box reveal">
+          <a class="contact-link" id="githubLink" href="https://github.com/jofalin" target="_blank" rel="noreferrer">
+            <small>GITHUB</small>
+            github.com/jofalin
+          </a>
+
+          <a class="contact-link" id="emailLink" href="mailto:jofalin.502330@sxcce.edu.in">
+            <small>EMAIL</small>
+            jofalin.502330@sxcce.edu.in
+          </a>
+
+          <a class="contact-link" id="linkedinLink" href="#" target="_blank" rel="noreferrer">
+            <small>LINKEDIN</small>
+            CONNECT WITH ME
+          </a>
+
+          <a class="contact-link" id="resumeLink" href="#" target="_blank" rel="noreferrer">
+            <small>RESUME</small>
+            OPEN / DOWNLOAD RESUME
+          </a>
+
+          <a class="contact-link" id="instagramLink" href="#" target="_blank" rel="noreferrer">
+            <small>OTHER / SOCIAL</small>
+            SOCIAL PROFILE
+          </a>
+
+          <a class="contact-link" href="#home" data-scroll="#home">
+            <small>SYSTEM</small>
+            RETURN TO START
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> <span id="footerName">JOFALIN</span> // ALL RIGHTS RESERVED</span>
+    <span>ORIGINAL PORTFOLIO UI / NO GAME ASSETS USED</span>
+  </footer>
+  <!-- =====================================================
+       PORTFOLIO DATA SYSTEM
+       Edit portfolio-data.js when updating your portfolio.
+       ====================================================== -->
+  <script src="portfolio-data.js"></script>
+  <script src="portfolio-engine.js"></script>
+</body>
+
+</html>
